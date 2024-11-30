@@ -1,0 +1,274 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+}
+
+/* Header Styles */
+header {
+    background-color: #1A1A1A;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    color: #00FFFF;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-left: 15px;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a.active {
+    color: #00FFFF;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 5px 0;
+}
+
+/* Hero Section */
+.about-hero {
+    background-image: url('../images/about-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-hero::after {
+    content: '';
+    background-color: rgba(13, 13, 13, 0.7);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 48px;
+    color: #00FFFF;
+}
+
+.about-hero p {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* About Content */
+.about-content .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.profile-picture {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.profile-picture img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.bio {
+    flex: 2;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.bio h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00FFFF;
+    margin-bottom: 20px;
+}
+
+.bio p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Mission and Vision */
+.mission-vision .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+}
+
+.mission, .vision {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.mission h2, .vision h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00FFFF;
+    margin-bottom: 20px;
+}
+
+.mission p, .vision p {
+    line-height: 1.6;
+}
+
+/* Values */
+.values {
+    background-color: #1A1A1A;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.values h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00FFFF;
+    margin-bottom: 40px;
+}
+
+.values .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.value-item {
+    flex: 1;
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.value-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00FFFF;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #0D0D0D;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    .burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #1A1A1A;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    /* About Content */
+    .about-content .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bio {
+        padding: 20px 0;
+    }
+
+    /* Mission and Vision */
+    .mission-vision .container {
+        flex-direction: column;
+    }
+
+    .mission, .vision {
+        padding: 20px 0;
+    }
+
+    /* Values */
+    .value-item {
+        margin: 20px 0;
+    }
+}
