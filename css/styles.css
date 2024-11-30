@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #0D0D0D;
     color: #FFFFFF;
 }
@@ -13,12 +13,17 @@ body {
 header {
     background-color: #1A1A1A;
     padding: 10px 20px;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 100;
     display: flex;
     align-items: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 .logo-container {
@@ -62,7 +67,7 @@ nav li {
 nav a {
     color: #FFFFFF;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 16px;
 }
 
@@ -78,66 +83,197 @@ nav a {
     margin: 5px 0;
 }
 
-#sketch-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-}
-
 /* Hero Section */
 .hero {
+    position: relative;
     height: 100vh;
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: 48px;
     color: #00FFFF;
+    z-index: 1;
 }
 
 .hero p {
     font-size: 24px;
     max-width: 600px;
     margin: auto;
+    margin-top: -10px;
+    z-index: 1;
 }
 
-/* Projects Section */
-.projects {
+/* Sketch Container */
+#sketch-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* What We Do Section */
+#what-we-do {
+    padding: 60px 20px;
+    background-color: #1A1A1A;
+    text-align: center;
+}
+
+#what-we-do h2 {
+    color: #00FFFF;
+    margin-bottom: 50px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    text-align: center;
+    width: 30%;
+    min-width: 250px;
+}
+
+.service-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    color: #00FFFF;
+    margin-bottom: 10px;
+}
+
+/* How Can I Help You Section */
+#how-i-help {
     padding: 60px 20px;
     background-color: #0D0D0D;
-}
-
-.projects h2 {
     text-align: center;
-    color: #00FFFF;
-    margin-bottom: 40px;
 }
 
-.project-item {
-    margin-bottom: 30px;
+#how-i-help h2 {
+    color: #00FFFF;
+    margin-bottom: 20px;
 }
 
-.project-item h3 {
+#how-i-help ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: auto;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+}
+
+#how-i-help ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* About Projects Section */
+#about-projects {
+    padding: 60px 20px;
+    background-color: #1A1A1A;
+}
+
+.about-projects-container {
+    display: flex;
+    justify-content: space-between; /* Change from space-around to space-between */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: auto;
+    gap: 2rem;
+}
+
+.about-section, .projects-section, .visualization-section {
+    flex: 1; /* Change flex property to equally distribute space */
+    text-align: center;
+    color: #FFFFFF;
+    min-width: 250px;
+    padding: 20px;
+}
+
+.projects-icon {
+    width: 100px; /* Adjust the size */
+    height: auto;
+    margin-bottom: 10px; /* Add space between the icon and the heading */
+}
+
+.about-section h2, .projects-section h2, .visualization-section h2 {
     color: #00FFFF;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.about-section p, .projects-section p, .visualization-section p {
+    max-width: 500px; /* Reduce this value to make the text narrower */
+    margin: auto; /* Center the text */
+    font-size: 1rem; /* Keep the font size as desired */
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.about-logo {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 10px; /* Add spacing below the logo */
+}
+
+.icon-container {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.icon-container canvas {
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+}
+
+.services-link {
+    color: #00FFFF;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #00FFFF;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.services-link:hover {
+    background-color: #00FFFF;
+    color: #0D0D0D;
+    box-shadow: 0 0 10px #00FFFF;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #1A1A1A;
+    background-color: #0D0D0D;
     padding: 20px;
     text-align: center;
     color: #FFFFFF;
 }
 
-/* Media Queries */
+/* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     nav {
         justify-content: flex-end;
@@ -164,4 +300,46 @@ footer {
         text-align: right;
         margin-right: 20px;
     }
+
+    .service-container {
+        flex-direction: column;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+
+    /* Stack sections vertically on mobile */
+    .about-projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-section, .projects-section, .visualization-section {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 40px;
+    }
+}
+
+.more-services {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.services-link {
+    color: #00FFFF;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #00FFFF;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.services-link:hover {
+    background-color: #00FFFF;
+    color: #0D0D0D;
+    box-shadow: 0 0 10px #00FFFF;
 }

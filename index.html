@@ -11,6 +11,8 @@
     <meta property="og:description" content="Expert in creating AI-driven solutions for businesses and companies.">
     <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:url" content="https://NeuralAI.com">
+    <!-- Link to Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Include p5.js library -->
@@ -30,6 +32,9 @@
             <div></div>
         </div>
         <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -38,47 +43,92 @@
 
 <!-- Hero Section -->
 <section class="hero">
-    <div>
+    <!-- Sketch Container -->
+    <div id="sketch-container"></div>
+    <!-- Hero Content -->
+    <div class="hero-content">
         <h1>Building Intelligent Solutions</h1>
-        <p>Specializing in machine learning models and AI solutions for businesses and companies.</p>
+        <p>Specializing in machine learning models and AI solutions for businesses and individuals.</p>
     </div>
 </section>
 
-<!-- Sketch Container -->
-<div id="sketch-container"></div>
+<!-- What We Do Section -->
+<section id="what-we-do">
+    <h2>What We Do</h2>
+    <div class="service-container">
+        <div class="service-item">
+            <img src="images/ml-icon.png" alt="Machine Learning Icon">
+            <h3>Machine Learning Models</h3>
+            <p>Customized models to drive predictive analytics and intelligent solutions.</p>
+        </div>
+        <div class="service-item">
+            <img src="images/chatbot-icon.png" alt="Chatbot Icon">
+            <h3>AI Chatbots</h3>
+            <p>Interactive NLP-powered assistants to streamline customer support.</p>
+        </div>
+        <div class="service-item">
+            <img src="images/data-analysis-icon.png" alt="Data Analysis Icon">
+            <h3>Data Analysis</h3>
+            <p>Uncover actionable insights to optimize your business operations.</p>
+        </div>
+    </div>
+    <div class="more-services">
+        <a href="#services" class="services-link">
+            And More ➔
+        </a>
+    </div>
+</section>
 
-<!-- Projects Section -->
-<section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-item">
-        <h3>RL_Forex_Trading_EA</h3>
-        <p>A Forex trading expert advisor (EA) powered by reinforcement learning for automated trading.</p>
-    </div>
-    <div class="project-item">
-        <h3>Calm_Waters_Plett</h3>
-        <p>An Airbnb Analysis Project uncovering insights from data to optimize rental performance.</p>
-    </div>
-    <div class="project-item">
-        <h3>CalmWaters-Chatbot</h3>
-        <p>An NLP chatbot using DistilBERT to assist guests with booking inquiries and FAQs.</p>
-    </div>
-    <div class="project-item">
-        <h3>Movie Recommendation System</h3>
-        <p>An end-to-end machine learning pipeline for personalized movie recommendations.</p>
-    </div>
-    <div class="project-item">
-        <h3>Transformer-From-Scratch</h3>
-        <p>A custom-built Transformer-based language model for text generation and NLP tasks.</p>
-    </div>
-    <div class="project-item">
-        <h3>Virtual Pet Evolution</h3>
-        <p>An interactive virtual pet with evolving traits using C++, SQL, and Python.</p>
+<!-- How Can I Help You Section -->
+<section id="how-i-help">
+    <h2>How Can We Help You?</h2>
+    <p>We address your unique needs with tailored AI solutions. Here's how:</p>
+    <ul>
+        <li><strong>Data Challenges:</strong> Gain insights with predictive models.</li>
+        <li><strong>Customer Engagement:</strong> Deploy AI chatbots for 24/7 assistance.</li>
+        <li><strong>Automation:</strong> Optimize operations with smart systems.</li>
+    </ul>
+    <a href="#contact" class="services-link">Get in Touch</a>
+</section>
+
+<section id="about-projects">
+    <div class="about-projects-container">
+        <!-- About Section on the Left -->
+        <div class="about-section">
+            <!-- Add this image tag for the logo -->
+            <img src="images/logo.png" alt="NeuralAI Logo" class="about-logo">
+            <h2>About NeuralAI</h2>
+            <p>
+                NeuralAI is dedicated to transforming businesses through cutting-edge AI and machine learning solutions.
+                We specialize in building intelligent systems that drive efficiency and growth.
+            </p>
+            <a href="#about" class="services-link">Learn More</a>
+        </div>
+
+        <!-- Visualization Section in the Middle -->
+        <div class="visualization-section">
+            <h2>Neural Network Visualization</h2>
+            <div class="icon-container">
+                <canvas id="neuralCanvas" width="600" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Projects Section on the Right -->
+        <div class="projects-section">
+            <img src="images/projects-icon.png" alt="Projects Icon" class="projects-icon">
+            <h2>Our Projects</h2>
+            <p>
+                Explore our portfolio of AI-driven solutions, including predictive models, intelligent chatbots, and 
+                advanced automation systems. See how we’ve helped businesses thrive.
+            </p>
+            <a href="#projects" class="services-link">View Projects</a>
+        </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer id="contact">
-    <p>&copy; 2024 Daniel | <a href="mailto:danielbarry36@gmail.com" style="color:#00FFFF;">danielbarry36@gmail.com</a></p>
+    <p>&copy; 2024 NeuralAI</p>
 </footer>
 
 <!-- Link to your external JavaScript code -->
