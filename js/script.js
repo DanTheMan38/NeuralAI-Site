@@ -130,25 +130,33 @@ function windowResized() {
   background(0);
 }
 
-// Responsive navigation menu
 function toggleMenu() {
   var nav = document.querySelector('nav ul');
-  if (nav.style.display === 'flex') {
-    nav.style.display = 'none';
-  } else {
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-  }
+  var burger = document.querySelector('.burger');
+  nav.classList.toggle('open');
+  burger.classList.toggle('active'); // Add animation to burger icon
 }
 
+// Adjust menu on window resize
 window.addEventListener('resize', function () {
   var nav = document.querySelector('nav ul');
   if (window.innerWidth > 768) {
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'row';
-  } else {
-    nav.style.display = 'none';
+    nav.classList.remove('open');
+    document.querySelector('.burger').classList.remove('active');
   }
+});
+
+// Minimize menu on significant scroll
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', function () {
+  var nav = document.querySelector('nav ul');
+  var burger = document.querySelector('.burger');
+  if (nav.classList.contains('open') && Math.abs(window.scrollY - lastScrollY) > 50) {
+    nav.classList.remove('open');
+    burger.classList.remove('active');
+  }
+  lastScrollY = window.scrollY;
 });
 
 // Neural Network Animation Code

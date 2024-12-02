@@ -56,19 +56,30 @@ nav li {
     margin-left: 15px;
 }
 
+/* Navigation Menu Links */
 nav a {
     color: #FFFFFF;
     text-decoration: none;
+    font-weight: normal;
     font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out; /* Smooth text color transition */
 }
 
-nav a.active {
-    color: #00FFFF;
+/* Hover Effect for Neon Cyan Text */
+nav a:hover {
+    color: #00FFFF; /* Change text color to neon cyan */
+    border: none; /* Ensure no border appears */
+    box-shadow: none; /* Remove any shadow effect */
 }
 
 .burger {
-    display: none;
+    display: block; /* Ensure it is visible on mobile */
     cursor: pointer;
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+    width: 30px; /* Adjust size */
+    height: 30px; /* Adjust size */
 }
 
 .burger div {
@@ -76,11 +87,25 @@ nav a.active {
     height: 3px;
     background-color: #FFFFFF;
     margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: #00FFFF; /* Neon cyan for the active state */
 }
 
 /* Hero Section */
 .about-hero {
-    background-image: url('../images/about-hero-bg.jpg');
+    background-image: url('../images/about.webp');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -123,6 +148,7 @@ nav a.active {
     flex-wrap: wrap;
     align-items: center;
     padding: 60px 20px;
+    margin-bottom: -40px;
 }
 
 .profile-picture {
@@ -154,50 +180,67 @@ nav a.active {
 }
 
 /* Mission and Vision */
+.mission-vision {
+    background: none; /* Remove gradient */
+    padding: 60px 20px;
+}
+
 .mission-vision .container {
     display: flex;
+    justify-content: space-around; /* Space between items */
+    align-items: flex-start;
+    gap: 30px; /* Increase gap between boxes */
+    padding: 0 40px; /* Add padding on sides */
     flex-wrap: wrap;
-    padding: 60px 20px;
 }
 
 .mission, .vision {
     flex: 1;
-    min-width: 300px;
+    max-width: 45%; /* Constrain box width to 45% of container */
+    min-width: 300px; /* Maintain minimum width */
+    background-color: #1A1A1A; /* Dark background */
     padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: none; /* Remove glow */
+    border: none; /* No border */
+    margin: 0 10px; /* Add some margin between boxes */
 }
 
 .mission h2, .vision h2 {
     font-family: 'Orbitron', sans-serif;
-    color: #00FFFF;
-    margin-bottom: 20px;
+    color: #00FFFF; /* Keep consistent heading color */
+    margin-bottom: 15px;
 }
 
 .mission p, .vision p {
     line-height: 1.6;
+    color: #CCCCCC; /* Consistent text color */
 }
 
 /* Values */
 .values {
     background-color: #1A1A1A;
     text-align: center;
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 
 .values h2 {
     font-family: 'Orbitron', sans-serif;
     color: #00FFFF;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .values .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px; /* Add gap between items for better spacing */
 }
 
 .value-item {
-    flex: 1;
-    max-width: 300px;
+    flex: 1 1 calc(33.33% - 40px); /* Adjust width for 3 columns with spacing */
+    max-width: 300px; /* Keep consistent max width */
     margin: 20px;
     text-align: center;
 }
@@ -210,6 +253,25 @@ nav a.active {
 
 .value-item p {
     line-height: 1.6;
+}
+
+/* Responsive Styles for Values */
+@media screen and (max-width: 768px) {
+    .values .container {
+        gap: 15px; /* Reduce spacing for smaller screens */
+    }
+
+    .value-item {
+        flex: 1 1 calc(50% - 30px); /* Stack 2 items per row */
+        margin: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .value-item {
+        flex: 1 1 100%; /* Stack items vertically */
+        margin: 10px 0; /* Add vertical margin */
+    }
 }
 
 /* Footer */
@@ -226,26 +288,39 @@ footer .container {
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-    /* Navigation */
-    .burger {
-        display: block;
-    }
-
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
+        align-items: center; /* Center text horizontally */
+        justify-content: center; /* Center text vertically */
+        background-color: #1A1A1A;
         position: absolute;
         top: 60px;
-        right: 0;
-        background-color: #1A1A1A;
-        padding: 10px;
-        border-radius: 5px;
+        right: 10px; /* Adjust spacing from the right */
+        width: 140px; /* Adjust menu width */
+        padding: 15px; /* Add padding around the menu */
+        border-radius: 10px; /* Rounded corners for a clean look */
+        transform: scale(0); /* Hidden by default */
+        transform-origin: top right; /* Animate from top-right corner */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    nav ul.open {
+        transform: scale(0.8); /* Zoom-out effect */
     }
 
     nav ul li {
-        margin: 10px 0;
-        text-align: right;
-        margin-right: 20px;
+        margin: 10px 0; /* Add vertical spacing between menu items */
+        text-align: center; /* Center text horizontally */
+        padding: 10px; /* Add padding for better tap targets */
+        width: 100%; /* Ensure full-width alignment */
+    }
+
+    nav ul li a {
+        color: #FFFFFF; /* Keep text white */
+        font-size: 18px; /* Slightly larger font for readability */
+        text-decoration: none; /* Remove underline */
+        display: block; /* Ensure full clickable area */
     }
 
     /* About Content */
@@ -270,5 +345,58 @@ footer .container {
     /* Values */
     .value-item {
         margin: 20px 0;
+    }
+}
+
+/* Hide Burger Menu on Large Screens */
+@media screen and (min-width: 769px) {
+    .burger {
+        display: none; /* Hide burger menu on large screens */
+    }
+
+    /* Ensure Navigation Menu Displays Horizontally */
+    nav ul {
+        flex-direction: row;
+        position: static;
+        width: auto;
+        transform: scale(1); /* Reset any transforms */
+    }
+
+    nav ul li {
+        margin: 0 15px;
+        text-align: left;
+    }
+}
+
+/* Responsive Styles for Mission and Vision */
+@media screen and (max-width: 768px) {
+    .mission-vision .container {
+        flex-direction: column; /* Stack the boxes vertically */
+        gap: 20px; /* Adjust spacing between stacked boxes */
+        padding: 0 20px; /* Reduce padding on smaller screens */
+    }
+
+    .mission, .vision {
+        max-width: 100%; /* Allow the boxes to take full width */
+        margin: 0 auto; /* Center the boxes */
+    }
+}
+
+/* Responsive Styles for Smaller Screens */
+@media screen and (max-width: 480px) {
+    .mission-vision .container {
+        padding: 0 10px; /* Reduce padding even further */
+    }
+
+    .mission, .vision {
+        padding: 15px; /* Reduce inner padding for smaller screens */
+    }
+
+    .mission h2, .vision h2 {
+        font-size: 18px; /* Adjust heading font size */
+    }
+
+    .mission p, .vision p {
+        font-size: 14px; /* Adjust paragraph font size */
     }
 }

@@ -56,19 +56,30 @@ nav li {
     margin-left: 15px;
 }
 
+/* Navigation Menu Links */
 nav a {
     color: #FFFFFF;
     text-decoration: none;
+    font-weight: normal;
     font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out; /* Smooth text color transition */
 }
 
-nav a.active {
-    color: #00FFFF;
+/* Hover Effect for Neon Cyan Text */
+nav a:hover {
+    color: #00FFFF; /* Change text color to neon cyan */
+    border: none; /* Ensure no border appears */
+    box-shadow: none; /* Remove any shadow effect */
 }
 
 .burger {
-    display: none;
+    display: block; /* Ensure it is visible on mobile */
     cursor: pointer;
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+    width: 30px; /* Adjust size */
+    height: 30px; /* Adjust size */
 }
 
 .burger div {
@@ -76,11 +87,25 @@ nav a.active {
     height: 3px;
     background-color: #FFFFFF;
     margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: #00FFFF; /* Neon cyan for the active state */
 }
 
 /* Hero Section */
 .contact-hero {
-    background-image: url('../images/contact-hero-bg.jpg');
+    background-image: url('../images/contact.png');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -119,7 +144,7 @@ nav a.active {
 
 /* Contact Information */
 .contact-info {
-    padding: 60px 20px;
+    padding: 40px 20px;
     background-color: #0D0D0D;
     text-align: center;
 }
@@ -127,88 +152,68 @@ nav a.active {
 .contact-info .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px; /* Add spacing between items */
 }
 
 .contact-item {
-    width: 30%;
+    width: 28%; /* Adjust for better responsiveness */
     min-width: 250px;
-    margin: 20px;
+    margin: 20px auto; /* Center items */
     text-align: center;
 }
 
-.contact-item img {
-    width: 80px;
-    margin-bottom: 20px;
+.contact-box img {
+    width: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition */
+    filter: none; /* Ensure no initial filter is applied */
 }
 
-.contact-item h2 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00FFFF;
-    margin-bottom: 15px;
+.contact-box:hover img {
+    filter: brightness(0) saturate(100%); /* Turn image completely black */
 }
 
-.contact-item p {
-    font-size: 18px;
-}
-
-.contact-item a {
-    color: #00FFFF;
-    text-decoration: none;
-}
-
-/* Contact Form */
-.contact-form {
-    padding: 60px 20px;
-    background-color: #1A1A1A;
+/* Contact Box Styles */
+.contact-box {
+    background-color: #1A1A1A; /* Grey background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    display: inline-block;
     text-align: center;
-}
-
-.contact-form h2 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00FFFF;
-    margin-bottom: 40px;
-}
-
-.contact-form form {
-    max-width: 600px;
-    margin: auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input,
-.form-group textarea {
     width: 100%;
-    padding: 15px;
-    background-color: #0D0D0D;
-    border: 2px solid #00FFFF;
-    border-radius: 5px;
-    color: #FFFFFF;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.contact-box:hover {
+    background-color: #00FFFF; /* Change background color on hover */
+    color: #0D0D0D; /* Change text color for contrast */
+    box-shadow: 0 8px 16px rgba(0, 255, 255, 0.4); /* Enhanced shadow effect */
+    transform: translateY(-5px); /* Slightly lift the box */
+}
+
+.contact-box img {
+    width: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out; /* Smooth image scaling */
+}
+
+.contact-box:hover img {
+    transform: scale(1.1); /* Slightly enlarge the image */
+}
+
+.contact-box p a {
+    color: inherit; /* Default link color */
+    text-decoration: none;
     font-size: 16px;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #AAAAAA;
-}
-
-.submit-button {
-    background-color: #00FFFF;
-    color: #0D0D0D;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.submit-button:hover {
-    box-shadow: 0 0 10px #00FFFF;
+.contact-box:hover p a {
+    color: #0D0D0D; /* Change link color to black on hover */
+    transition: none; /* Immediate change */
 }
 
 /* Footer */
@@ -231,30 +236,82 @@ footer .container {
     }
 
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
+        align-items: center; /* Center text horizontally */
+        justify-content: center; /* Center text vertically */
+        background-color: #1A1A1A;
         position: absolute;
         top: 60px;
-        right: 0;
-        background-color: #1A1A1A;
-        padding: 10px;
-        border-radius: 5px;
+        right: 10px; /* Adjust spacing from the right */
+        width: 140px; /* Adjust menu width */
+        padding: 15px; /* Add padding around the menu */
+        border-radius: 10px; /* Rounded corners for a clean look */
+        transform: scale(0); /* Hidden by default */
+        transform-origin: top right; /* Animate from top-right corner */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    nav ul.open {
+        transform: scale(0.8); /* Zoom-out effect */
     }
 
     nav ul li {
-        margin: 10px 0;
-        text-align: right;
-        margin-right: 20px;
+        margin: 10px 0; /* Add vertical spacing between menu items */
+        text-align: center; /* Center text horizontally */
+        padding: 10px; /* Add padding for better tap targets */
+        width: 100%; /* Ensure full-width alignment */
+    }
+
+    nav ul li a {
+        color: #FFFFFF; /* Keep text white */
+        font-size: 18px; /* Slightly larger font for readability */
+        text-decoration: none; /* Remove underline */
+        display: block; /* Ensure full clickable area */
     }
 
     /* Contact Information */
     .contact-info .container {
         flex-direction: column;
-        align-items: center;
+        gap: 20px;
     }
 
     .contact-item {
-        width: 100%;
-        max-width: 500px;
+        width: 90%; /* Make it fit better on smaller screens */
+    }
+
+    .contact-box {
+        padding: 15px;
+    }
+
+    .contact-box h2 {
+        font-size: 16px;
+    }
+
+    .contact-box p a {
+        font-size: 14px;
+    }
+
+    .contact-item img {
+        width: 50px; /* Scale down icons for smaller screens */
+    }
+}
+
+/* Hide Burger Menu on Large Screens */
+@media screen and (min-width: 769px) {
+    .burger {
+        display: none; /* Hide burger menu on large screens */
+    }
+
+    nav ul {
+        flex-direction: row;
+        position: static;
+        width: auto;
+        transform: scale(1); /* Reset any transforms */
+    }
+
+    nav ul li {
+        margin: 0 15px;
+        text-align: left;
     }
 }

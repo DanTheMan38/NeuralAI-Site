@@ -56,19 +56,30 @@ nav li {
     margin-left: 15px;
 }
 
+/* Navigation Menu Links */
 nav a {
     color: #FFFFFF;
     text-decoration: none;
+    font-weight: normal;
     font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out; /* Smooth text color transition */
 }
 
-nav a.active {
-    color: #00FFFF;
+/* Hover Effect for Neon Cyan Text */
+nav a:hover {
+    color: #00FFFF; /* Change text color to neon cyan */
+    border: none; /* Ensure no border appears */
+    box-shadow: none; /* Remove any shadow effect */
 }
 
 .burger {
-    display: none;
+    display: block; /* Ensure it is visible on mobile */
     cursor: pointer;
+    position: relative;
+    z-index: 10; /* Ensure it's above other elements */
+    width: 30px; /* Adjust size */
+    height: 30px; /* Adjust size */
 }
 
 .burger div {
@@ -76,11 +87,25 @@ nav a.active {
     height: 3px;
     background-color: #FFFFFF;
     margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: #00FFFF; /* Neon cyan for the active state */
 }
 
 /* Hero Section */
 .services-hero {
-    background-image: url('../images/services-hero-bg.jpg');
+    background-image: url('../images/services.webp');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -141,7 +166,8 @@ nav a.active {
 
 .service-item img {
     width: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .service-item h2 {
@@ -169,7 +195,7 @@ nav a.active {
 
 .cta p {
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
 .cta-button {
@@ -201,7 +227,7 @@ footer .container {
     margin: auto;
 }
 
-/* Responsive Styles */
+/* Combine your media queries into one */
 @media screen and (max-width: 768px) {
     /* Navigation */
     .burger {
@@ -209,30 +235,106 @@ footer .container {
     }
 
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
+        align-items: center; /* Center text horizontally */
+        justify-content: center; /* Center text vertically */
+        background-color: #1A1A1A;
         position: absolute;
         top: 60px;
-        right: 0;
-        background-color: #1A1A1A;
-        padding: 10px;
-        border-radius: 5px;
+        right: 10px; /* Adjust spacing from the right */
+        width: 140px; /* Adjust menu width */
+        padding: 15px; /* Add padding around the menu */
+        border-radius: 10px; /* Rounded corners for a clean look */
+        transform: scale(0); /* Hidden by default */
+        transform-origin: top right; /* Animate from top-right corner */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    nav ul.open {
+        transform: scale(0.8); /* Zoom-out effect */
     }
 
     nav ul li {
-        margin: 10px 0;
-        text-align: right;
-        margin-right: 20px;
+        margin: 10px 0; /* Add vertical spacing between menu items */
+        text-align: center; /* Center text horizontally */
+        padding: 10px; /* Add padding for better tap targets */
+        width: 100%; /* Ensure full-width alignment */
+    }
+
+    nav ul li a {
+        color: #FFFFFF; /* Keep text white */
+        font-size: 18px; /* Slightly larger font for readability */
+        text-decoration: none; /* Remove underline */
+        display: block; /* Ensure full clickable area */
     }
 
     /* Services List */
     .services-list .container {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;          /* Full width */
+        padding: 0;           /* Remove side padding */
+        margin: 0 auto;       /* Center the container */
     }
 
     .service-item {
-        width: 100%;
-        max-width: 500px;
+        width: 100%;          /* Full width */
+        max-width: none;      /* Remove max-width */
+        margin: 0 auto 20px;  /* Center and add bottom margin */
+        padding: 20px;        /* Consistent padding */
+        box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    }
+
+    .service-item img {
+        width: 70px;
+        margin-bottom: 15px;
+    }
+
+    .service-item h2 {
+        font-size: 18px;
+    }
+
+    .service-item p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .service-item {
+        padding: 15px;
+    }
+
+    .service-item img {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+
+    .service-item h2 {
+        font-size: 16px;
+    }
+
+    .service-item p {
+        font-size: 13px;
+    }
+}
+
+/* Hide Burger Menu on Large Screens */
+@media screen and (min-width: 769px) {
+    .burger {
+        display: none; /* Hide burger menu on large screens */
+    }
+
+    nav ul {
+        flex-direction: row;
+        position: static;
+        width: auto;
+        transform: scale(1); /* Reset any transforms */
+    }
+
+    nav ul li {
+        margin: 0 15px;
+        text-align: left;
     }
 }
