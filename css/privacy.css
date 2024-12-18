@@ -1,0 +1,97 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    line-height: 1.8; /* Smoother line height */
+}
+
+/* Flexbox Layout for Body */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content Takes Remaining Space */
+main.privacy-policy {
+    flex: 1;
+    max-width: 800px;
+    margin: 60px auto; /* Adds vertical spacing */
+    padding: 0 20px; /* Adds horizontal padding */
+}
+
+header {
+    background-color: #1A1A1A;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 22px;
+    color: #00FFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    color: #00FFFF;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px; /* Adds spacing below heading */
+}
+
+h2 {
+    color: #00FFFF;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 30px; /* Spacing above section headings */
+    margin-bottom: 10px;
+}
+
+p, li {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 15px; /* Add spacing between paragraphs */
+}
+
+ul {
+    margin-left: 20px; /* Indent bullet points */
+}
+
+a {
+    color: #00FFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #1A1A1A;
+    padding: 20px; 
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: auto; /* Keeps footer at the bottom */
+    font-size: 14px; /* Ensure font size matches */
+    line-height: 3;
+}
+
+footer p {
+    margin: 0; /* Removes extra bottom margin applied globally */
+}
