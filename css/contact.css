@@ -216,16 +216,17 @@ nav a:hover {
     transition: none; /* Immediate change */
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-    background-color: #0D0D0D;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px; /* Keep the padding */
 }
 
-footer .container {
-    max-width: 1200px;
-    margin: auto;
+footer p {
+    margin: 0;
 }
 
 /* Responsive Styles */
@@ -314,4 +315,35 @@ footer .container {
         margin: 0 15px;
         text-align: left;
     }
+}
+
+.youtube-icon {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: none !important; /* Remove any parent background */
+    border: none !important; /* Remove any border */
+    outline: none !important; /* Remove outline */
+    box-shadow: none !important; /* Remove box shadow */
+}
+
+.youtube-icon img {
+    width: 30px; /* Adjust size as needed */
+    height: auto;
+    vertical-align: middle;
+    background: none !important; /* Remove background on the image */
+    border: none !important; /* Remove border on the image */
+    outline: none !important; /* Remove outline */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.youtube-icon:hover img {
+    transform: scale(1.2);
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(180deg); /* Cyan color */
+}
+
+.youtube-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Cyan glow */
+    background: none; /* Ensure no background on hover */
 }
